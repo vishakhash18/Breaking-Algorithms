@@ -1,0 +1,36 @@
+// 1006C - Three Parts of the Array
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    int ar[n + 4];
+    for (int i = 0; i < n; i++)
+        cin >> ar[i];
+        
+    int sum1 = 0, sum2 = 0, ans = 0;
+    int l = 0, r = n - 1;
+    
+    while (l <= r)
+    {
+        if (sum1 < sum2)
+        {
+            sum1 += ar[l];
+            l++;
+        }
+        else
+        {
+            sum2 += ar[r];
+            r--;
+        }
+        
+        if (sum1 == sum2)
+            ans = sum1;
+    }
+    
+    cout << ans << endl;
+    return 0;
+}
